@@ -1,40 +1,47 @@
 package org.example;
 
-class Shape{
-    public void printName(String name){
+abstract class Shape{
+    abstract void printName();
+}
+class Quad extends Shape{
+    public String name = "Quad";
+    @Override
+    void printName() {
         System.out.println(name);
     }
 }
-class Quad extends Shape{
-    private final String name = "Quad";
-    public String getName(){
-        return name;
-    }
-}
 class Circle extends Shape{
-    private final String name = "Circle";
-    public String getName(){
-        return name;
+    public String name = "Circle";
+    @Override
+    void printName() {
+        System.out.println(name);
     }
 }
 class Triangle extends Shape{
-    private final String name = "Triangle";
-    public String getName(){
-        return name;
+    public String name = "Triangle";
+    @Override
+    void printName() {
+        System.out.println(name);
     }
 }
 class Rectangle extends Shape{
-    private final String name = "Rectangle";
-
-    public String getName(){
-        return name;
+    public String name = "Rectangle";
+    @Override
+    void printName() {
+        System.out.println(name);
     }
 }
 class Octagon extends Shape{
-    private final String name = "Octagon";
+    public String name = "Octagon";
 
-    public String getName(){
-        return name;
+    @Override
+    void printName() {
+        System.out.println(name);
+    }
+}
+class ShapePrinter {
+    public void printName(Shape shape) {
+        shape.printName();
     }
 }
 class ShapeTest{
@@ -44,10 +51,10 @@ class ShapeTest{
         Triangle triangle = new Triangle();
         Rectangle rectangle = new Rectangle();
         Octagon octagon = new Octagon();
-        octagon.printName(quad.getName());
-        octagon.printName(circle.getName());
-        octagon.printName(triangle.getName());
-        octagon.printName(rectangle.getName());
-        octagon.printName(octagon.getName());
+        new ShapePrinter().printName(quad);
+        new ShapePrinter().printName(circle);
+        new ShapePrinter().printName(triangle);
+        new ShapePrinter().printName(rectangle);
+        new ShapePrinter().printName(octagon);
     }
 }
